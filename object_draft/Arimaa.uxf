@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <help_text>// Uncomment the following line to change the fontsize and font:
+fontsize=16
+// fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use +/- or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text>
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>9</y>
+      <w>261</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>/Player/
+--
+name : String
+playerType : boolean
+color : String
+moveCount : int
+ret : int
+xCoord : int
+yCoord : int
+notation : Notation
+board : Board
+rules : Rules
+--
+int getRet()
+int getMoveCount()
+void setCoords(int x1, int y1)
+void resetRetAndMoveCount()
+String getName()
+boolean getPlayerType()
+String getColor()
+void setRules(Rules rules)
+--
+Abstract class implementing Participant
+and getters/setters
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1305</x>
+      <y>90</y>
+      <w>207</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>Time
+--
+seconds : int
+minutes : int
+roundArray : ArrayList&lt;String&gt;
+--
+void stopwatch()
+String getElapsedTime()
+void addTime()
+String getRoundTime(int index)
+void reset()
+--
+Created in Laucher class and
+uses separate thread
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>432</x>
+      <y>675</y>
+      <w>279</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>Rules
+--
+player : Player
+board : Board
+--
+boolean moveRule(int x, int y)
+boolean pushRule(int x, int y)
+boolean pullRule(int x, int y)
+boolean freeze(int x, int y)
+int winRabbit()
+int lossNoRabbits()
+int lossNoMoves()
+int maxRoundsReached()
+--
+Created in Launcher class for each player
+Used in Player checkMove method 
+and in Board chooseWinner method
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1242</x>
+      <y>360</y>
+      <w>297</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Figure
+--
+
+--
+static int getFigureStrength(char figureType)
+--
+Util class imported to Rules class
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>819</y>
+      <w>198</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Launcher
+--
+
+--
+static void main(String[] args)
+--
+Main file to run the program
+Contains controller methods
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>801</x>
+      <y>63</y>
+      <w>432</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>Notation
+--
+round : int
+notationArray : ArrayList&lt;String&gt;
+listOfNotations : ArrayList&lt;ArrayList&lt;String&gt;&gt;
+--
+void addMove(String move)
+void addFigure(String position)
+void swapFigurePositions(String positionOne, String positionTwo)
+void addRound(Player player)
+void saveNotation()
+ArrayList&lt;String&gt; getNotation()
+ArrayList&lt;ArrayList&lt;String&gt;&gt; getListOfNotations()
+int getRound(Player player)
+--
+Created in Launcher class
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1197</x>
+      <y>756</y>
+      <w>126</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>gui
+--
+MainGame
+MainMenu
+Start
+Load
+HowToPlay
+NotationScreen
+bg=gray
+fg=blue
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1359</x>
+      <y>720</y>
+      <w>126</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>logic
+--
+Participant
+Player
+HumanPlayer
+AiPlayer
+SaveAndLoad
+Time
+Notation
+Board
+Figure
+Rules
+bg=gray
+fg=blue
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1233</x>
+      <y>522</y>
+      <w>324</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>SaveAndLoad
+--
+
+--
+static void save(Object[] objects, String filename)
+static Object[] load(String filename)
+static void delete(String filename)
+--
+Util class imported to Launcher class
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>765</x>
+      <y>378</y>
+      <w>432</w>
+      <h>261</h>
+    </coordinates>
+    <panel_attributes>Board
+--
+boards : char[][][]
+matrix : char[][]
+notation : Notation
+rules : Rules
+--
+void removeFigure()
+String chooseWinner(Player currentPlayer, Player previousPlayer)
+char[][] getMatrix()
+void initialize()
+char getFigure(int x, int y)
+String getFigureCoords(int x, int y)
+void saveMatrix()
+void loadBoard(int index)
+void setRules(Rules rules)
+--
+Created in Launcher class
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>855</x>
+      <y>684</y>
+      <w>648</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>cz.cvut.fel.pjv
+--
+bg=gray
+fg=blue
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1152</x>
+      <y>720</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Launcher
+bg=gray
+fg=blue
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>288</y>
+      <w>27</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>702</x>
+      <y>297</y>
+      <w>135</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>702</x>
+      <y>630</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>441</x>
+      <y>414</y>
+      <w>225</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>AiPlayer
+--
+used as in Player abstract class
+random : Random
+--
+implemented Participant methods
+used Player getters/setters
+int[] chooseTile()
+boolean nextMove()
+--
+Created in Launcher class 
+if chosen in Game mode
+(in Start screen)
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>702</x>
+      <y>162</y>
+      <w>117</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>522</x>
+      <y>360</y>
+      <w>27</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1026</x>
+      <y>756</y>
+      <w>126</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>goldFigures
+--
+gElephant
+gCamel
+gHorse
+gDog
+gCat
+gRabbit
+bg=gray
+fg=blue
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>873</x>
+      <y>756</y>
+      <w>126</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>silverFigures
+--
+sElephant
+sCamel
+sHorse
+sDog
+sCat
+sRabbit
+bg=gray
+fg=blue
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>54</x>
+      <y>342</y>
+      <w>333</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>HumanPlayer
+--
+used as in Player abstract class
+--
+implemented Participant methods
+used Player getters/setters
+--
+Created in Launcher class one or two times 
+according to chosen Game mode (in Start screen)
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>45</x>
+      <y>27</y>
+      <w>333</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>/Participant/
+--
+
+--
+int[] checkMove(int x1, int y1)
+void push(int[] possibleMoves, int x2, int y2)
+void pull(int[] possibleMoves, int x2, int y2)
+void move(int[] possibleMoves, int x2, int y2)
+void changeFigurePlace(int x1, int y1, int x2, int y2)
+void takeback()
+boolean moveAndBack(char[][] startingMatrix)
+--
+Interface for declaration of methods for playing
+the actual game
+bg=green
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>378</x>
+      <y>306</y>
+      <w>90</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>369</x>
+      <y>90</y>
+      <w>99</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>549</x>
+      <y>594</y>
+      <w>27</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>207</x>
+      <y>459</y>
+      <w>243</w>
+      <h>324</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;250.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>225</x>
+      <y>459</y>
+      <w>225</w>
+      <h>297</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>230.0;310.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>702</x>
+      <y>630</y>
+      <w>117</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>531</x>
+      <y>594</y>
+      <w>27</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1017</x>
+      <y>720</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Controller
+bg=gray
+fg=blue
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>18</x>
+      <y>513</y>
+      <w>198</w>
+      <h>279</h>
+    </coordinates>
+    <panel_attributes>Controller
+--
+game : MainGame
+aiPlayer : AiPlayer
+humanPlayer : HumanPlayer
+notation : Notation
+board : Board
+time : Time 
+--
+void takebackControl()
+void endTurnControl()
+void figureMoveControl()
+void changeFiguresControl()
+void leftArrowControl()
+void rightArrowControl()
+--
+Controller to combine
+MainGame gui with logic
+Created in Launcher class
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
